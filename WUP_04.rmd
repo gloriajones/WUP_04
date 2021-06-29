@@ -68,8 +68,22 @@ The mean for the bachelor, graduate, junior college are close to being the same.
 ## Inferential Results
 
 <!--State hypothesis clearly.  Make sure your discussion of the inferential test covers all the aspects that the test output produces, such as test statistic, p-value etc.  Make a decision about the null hypothesis, explain the assumptions on which the selected test/procedure was based, and why the chosen procedure satisfys the assumptions and is appropriate to answer the research question!-->
-
-
+  
+```{r}
+model1 <- aov(WORDSUM~DEGREE,data=gssdata)
+summary.aov(model1)
+```
+  
+```{r}
+#we specify the margins starting at the bottom and proceeding clockwise - thus 8.7 is the left side margin to hold the names of the factors
+par(mar = c(3, 13.2, 2, 2))
+plot(TukeyHSD(model1),las=2)
+```
+  
+The categories that are different would be the LT HS graduate and the HS graduate, because both of them don't run into the zero line, those were the only two categories that would be outside of that. However, I am able to see a difference in the graph above.   
+  
 # Discussion and Conclusion
 
 <!--Discussion and conclusion here.  If you found a relationship be sure to consider whether the relationship occurs because one of the variavbles causes the other, or whether they perhasps are related for some other reason.  Watch the chapter 6 videos from the GeorgeTown videos collection.!-->
+      
+In the beginning of creating my report, I had to fork my file from github, then copy and past the url into rstudio and creat a new project. I then had to upload my credentials and then determine what kind of helper file I needed for this assignment. I went through a series of copying and pasting from the numerical cat. rmd file to my WUP_4 file. I was able to collect all my data to determine the outcome of the report. I had to use two different graphs towards the end of my report. The first one wasn't very clear with the information that I needed to determine the differences. The second graph was clear with information. I was able to analyze and determine the difference between the schools and finish with a conclusion.
